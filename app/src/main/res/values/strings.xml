@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">AlejandriaMaster</string>
+    <string name="app_name">Alejandría Master</string>
+    <string name="username">usuario</string>
+    <string name="password">contraseña</string>
+    <string name="comoFunciona">¿Como funciona?</string>
+    <string name="ingresar">Ingresar</string>
 </resources>
