@@ -1,6 +1,5 @@
 package com.unmsm.alejandriamaster.Presentation.auth.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,10 +14,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
-/**
- * Created by christian on 6/23/17.
- */
 public class LoginFragment extends BaseFragment {
 
 

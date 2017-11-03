@@ -31,5 +31,6 @@ ext {
     calligraphy = '2.3.0'
     supportLibraryVersion = '25.3.1'
     butterknife = "8.8.1"
+    retrofit2 = "2.3.0"
 
 }

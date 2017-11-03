@@ -17,9 +17,7 @@ import butterknife.ButterKnife;
 
 
 public class LoginAlejandria extends BaseActivity {
-
-    private RelativeLayout animation;
-    private Animation uptodown;
+    
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
