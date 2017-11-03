@@ -9,10 +9,6 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-
-/**
- * Created by miguel on 14/06/16.
- */
 public class BaseFragment extends Fragment {
 
     private boolean loading = false;

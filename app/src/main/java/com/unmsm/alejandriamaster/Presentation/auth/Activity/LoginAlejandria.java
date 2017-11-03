@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 
 import com.unmsm.alejandriamaster.Core.BaseActivity;
+import com.unmsm.alejandriamaster.Presentation.Presenter.LoginPresenter;
 import com.unmsm.alejandriamaster.Presentation.Utils.ActivityUtils;
 import com.unmsm.alejandriamaster.Presentation.auth.Fragment.LoginFragment;
 import com.unmsm.alejandriamaster.R;
@@ -29,7 +30,7 @@ public class LoginAlejandria extends BaseActivity {
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), loginFragment, R.id.body);
         }
         //Creacion de LoginPresenter
-
+        new LoginPresenter(loginFragment,this);
     }
 
     public void showMessageError(String message) {

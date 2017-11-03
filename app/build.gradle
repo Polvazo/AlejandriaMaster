@@ -32,8 +32,10 @@ dependencies {
     //noinspection GradleDependency
     compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknife"
     compile "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphy"
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit2"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit2"
+    compile "com.mobsandgeeks:android-saripaar:$rootProject.ext.androidsaripaar"
     testCompile 'junit:junit:4.12'
 }
