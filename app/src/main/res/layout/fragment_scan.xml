@@ -25,15 +25,24 @@
         android:layout_margin="30dp"
         android:background="@color/blanco">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/fisi_code_qr" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
+            android:background="@color/buttonColor"
+            android:padding="15dp"
             android:text="@string/scan"
             android:textAllCaps="false"
-            android:textSize="20dp"
-            tools:ignore="NotSibling" />
+            android:textColor="@color/white"
+            android:textSize="18dp" />
 
     </RelativeLayout>
 

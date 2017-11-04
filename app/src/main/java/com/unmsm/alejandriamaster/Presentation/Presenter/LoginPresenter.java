@@ -7,12 +7,11 @@ package com.unmsm.alejandriamaster.Presentation.Presenter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.unmsm.alejandriamaster.Data.Entities.loginData;
 import com.unmsm.alejandriamaster.Data.Remote.Request.LoginRequest;
 import com.unmsm.alejandriamaster.Data.Remote.ServiceGenerator;
-import com.unmsm.alejandriamaster.Presentation.auth.Contracs.LoginContract;
+import com.unmsm.alejandriamaster.Presentation.Contracs.LoginContract;
 
 import java.util.ArrayList;
 
@@ -49,6 +48,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     for (int i = 0; i < loginOpen.size(); i++) {
                         if (username.equals(loginOpen.get(i).getEmail()) && contrasenha.equals(loginOpen.get(i).codUsuario)) {
                             Log.i(loginOpen.get(i).getEmail(), String.valueOf(loginOpen.get(i).getCodUsuario()));
+                            mLoginView.successLoginUser();
 
                         }
                     }

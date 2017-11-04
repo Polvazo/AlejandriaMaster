@@ -91,7 +91,6 @@
                 android:layout_margin="22dp"
                 android:background="#d67601"
                 android:text="@string/ingresar"
-
                 android:textAllCaps="false"
                 android:textColor="@color/blanco"
                 android:textSize="18dp" />

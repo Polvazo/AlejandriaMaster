@@ -1,20 +1,15 @@
-package com.unmsm.alejandriamaster.Presentation.auth.Activity;
+package com.unmsm.alejandriamaster.Presentation.Activity;
 
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
 
 import com.unmsm.alejandriamaster.Core.BaseActivity;
 import com.unmsm.alejandriamaster.Presentation.Presenter.LoginPresenter;
 import com.unmsm.alejandriamaster.Presentation.Utils.ActivityUtils;
-import com.unmsm.alejandriamaster.Presentation.auth.Fragment.LoginFragment;
+import com.unmsm.alejandriamaster.Presentation.Fragments.LoginFragment;
 import com.unmsm.alejandriamaster.R;
-
-import butterknife.ButterKnife;
 
 
 public class LoginAlejandria extends BaseActivity {

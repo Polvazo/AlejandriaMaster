@@ -1,4 +1,4 @@
-package com.unmsm.alejandriamaster.Presentation.auth.Fragment;
+package com.unmsm.alejandriamaster.Presentation.Fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -16,8 +16,9 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
 import com.unmsm.alejandriamaster.Data.Entities.loginData;
-import com.unmsm.alejandriamaster.Presentation.auth.Activity.LoginAlejandria;
-import com.unmsm.alejandriamaster.Presentation.auth.Contracs.LoginContract;
+import com.unmsm.alejandriamaster.Presentation.Activity.LoginAlejandria;
+import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
+import com.unmsm.alejandriamaster.Presentation.Contracs.LoginContract;
 import com.unmsm.alejandriamaster.R;
 
 import java.util.List;
@@ -111,8 +112,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
     }
 
     @Override
-    public void successLoginUser(loginData userEntity){
-        //next(getActivity(),null,MainActivity.class,true);
+    public void successLoginUser(){
+        next(getActivity(),null,ScanActivity.class,true);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.unmsm.alejandriamaster.Presentation.auth.Contracs;
+package com.unmsm.alejandriamaster.Presentation.Contracs;
 
 
 import com.unmsm.alejandriamaster.Core.BasePresenter;
@@ -9,7 +9,7 @@ public interface LoginContract {
 
     interface View extends BaseView<Presenter> {
         void errorLogin(String msg);
-        void successLoginUser(loginData loginData);
+        void successLoginUser();
     }
 
     interface Presenter extends BasePresenter {
