@@ -18,6 +18,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+}
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
 }
 
 dependencies {
@@ -37,5 +43,8 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit2"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit2"
     compile "com.mobsandgeeks:android-saripaar:$rootProject.ext.androidsaripaar"
+    compile "com.google.zxing:core:$rootProject.ext.google"
+    compile "com.journeyapps:zxing-android-embedded:$rootProject.ext.codeQr"
+
     testCompile 'junit:junit:4.12'
 }

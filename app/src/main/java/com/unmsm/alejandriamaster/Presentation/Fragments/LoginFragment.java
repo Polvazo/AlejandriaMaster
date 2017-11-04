@@ -117,7 +117,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
     }
 
     @Override
-    public void errorLogin(String message){((LoginAlejandria) getActivity()).showMessageError(message);}
+    public void errorLogin(String message) {
+        ((LoginAlejandria) getActivity()).showMessageError(message);}
 
     @Override
     public void setLoadingIndicator(boolean active) {
@@ -140,6 +141,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
     public void setDialogMessage(String message) {
         tvError.setVisibility(View.VISIBLE);
         tvError.setText("Bienvenido");
+
     }
 
     @Override

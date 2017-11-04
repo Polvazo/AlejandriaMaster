@@ -3,8 +3,8 @@ package com.unmsm.alejandriamaster.Presentation.Activity;
 import android.os.Bundle;
 
 import com.unmsm.alejandriamaster.Core.BaseActivity;
-import com.unmsm.alejandriamaster.Presentation.Fragments.LoginFragment;
 import com.unmsm.alejandriamaster.Presentation.Fragments.ScanFragment;
+import com.unmsm.alejandriamaster.Presentation.Presenter.ScanPresenter;
 import com.unmsm.alejandriamaster.Presentation.Utils.ActivityUtils;
 import com.unmsm.alejandriamaster.R;
 
@@ -27,6 +27,7 @@ public class ScanActivity extends BaseActivity {
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), scanFragment, R.id.body);
         }
 
+        new ScanPresenter(scanFragment, this);
         // Create the presenter
         // new ExamplePresenter(fragment,this);
     }

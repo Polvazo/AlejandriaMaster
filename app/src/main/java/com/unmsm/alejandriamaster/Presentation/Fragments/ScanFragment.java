@@ -1,23 +1,25 @@
 package com.unmsm.alejandriamaster.Presentation.Fragments;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
-import com.mobsandgeeks.saripaar.annotation.NotEmpty;
-import com.mobsandgeeks.saripaar.annotation.Password;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
-import com.unmsm.alejandriamaster.Data.Entities.loginData;
+
 import com.unmsm.alejandriamaster.Presentation.Activity.LoginAlejandria;
-import com.unmsm.alejandriamaster.Presentation.Contracs.LoginContract;
+import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
+import com.unmsm.alejandriamaster.Presentation.Contracs.ScanContract;
 import com.unmsm.alejandriamaster.R;
 
 import java.util.List;
@@ -26,13 +28,20 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
-/**
- * Created by USUARIO on 03/11/2017.
- */
 
-public class ScanFragment  extends BaseFragment{
+public class ScanFragment extends BaseFragment implements ScanContract.View {
+
+    private ScanContract.Presenter mPresenter;
+
+    @BindView(R.id.btn_scan)
+    Button btnScan;
+
+    IntentIntegrator integrator;
+
 
     public static ScanFragment newInstance() {
         return new ScanFragment();
@@ -41,19 +50,106 @@ public class ScanFragment  extends BaseFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_scan, container, false);
-
+        ButterKnife.bind(this, root);
         return root;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
     }
 
-       @Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
 
+    @Override
+    public void setLoadingIndicator(boolean active) {
+
+    }
+
+    @Override
+    public void setMessageError(String error) {
+
+    }
+
+    @Override
+    public void setDialogMessage(String message) {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return false;
+    }
+
+    @Override
+    public void setPresenter(ScanContract.Presenter presenter) {
+        mPresenter = checkNotNull(presenter);
+    }
+
+    @Override
+    public void errorScanQr(String msg) {
+        ((ScanActivity) getActivity()).showMessageError(msg);
+    }
+
+    @Override
+    public void successScanQr(String msg) {
+        ((ScanActivity) getActivity()).showMessageError(msg);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.start();
+    }
+
+    @OnClick(R.id.btn_scan)
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_scan:
+                getCodeQr();
+                break;
+        }
+    }
+
+
+    public void scanInicialize() {
+
+    }
+
+
+    public void scanNoInicialize(List<ValidationError> errors) {
+
+    }
+
+    @Override
+    public void getCodeQr() {
+
+        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        intent.putExtra("SCAN_MODE", "BAR_CODE_MODE");
+        getActivity().startActivityForResult(intent, 0);
+
+    }
+
+    @Override
+    public void  onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == 0) {
+            if (resultCode == getActivity().RESULT_OK) {
+
+                String contents = intent.getStringExtra("SCAN_RESULT");
+                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+
+                // Handle successful scan
+
+            } else if (resultCode == getActivity().RESULT_CANCELED) {
+                // Handle cancel
+                Log.i("App","Scan unsuccessful");
+            }
+        }}
+
 }
+

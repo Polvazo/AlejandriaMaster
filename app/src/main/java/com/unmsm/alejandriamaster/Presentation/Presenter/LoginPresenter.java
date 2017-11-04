@@ -49,6 +49,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                         if (username.equals(loginOpen.get(i).getEmail()) && contrasenha.equals(loginOpen.get(i).codUsuario)) {
                             Log.i(loginOpen.get(i).getEmail(), String.valueOf(loginOpen.get(i).getCodUsuario()));
                             mLoginView.successLoginUser();
+                            mLoginView.setDialogMessage("Bienvenido");
 
                         }
                     }
