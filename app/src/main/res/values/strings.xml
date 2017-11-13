@@ -5,4 +5,5 @@
     <string name="comoFunciona">¿Como funciona?</string>
     <string name="ingresar">Ingresar</string>
     <string name="scan">Scanear</string>
+    <string name="error">Error</string>
 </resources>

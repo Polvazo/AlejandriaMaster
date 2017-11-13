@@ -28,8 +28,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
 
@@ -39,8 +37,6 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
 
     @BindView(R.id.btn_scan)
     Button btnScan;
-
-    IntentIntegrator integrator;
 
 
     public static ScanFragment newInstance() {
@@ -116,40 +112,17 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         }
     }
 
-
-    public void scanInicialize() {
-
-    }
-
-
-    public void scanNoInicialize(List<ValidationError> errors) {
-
-    }
-
     @Override
     public void getCodeQr() {
-
-        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-        intent.putExtra("SCAN_MODE", "BAR_CODE_MODE");
-        getActivity().startActivityForResult(intent, 0);
-
+        IntentIntegrator integrator = new IntentIntegrator(getActivity());
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+        integrator.setPrompt("Scan!!");
+        integrator.setCameraId(0);
+        integrator.setBeepEnabled(false);
+        integrator.setBarcodeImageEnabled(false);
+        integrator.initiateScan();
     }
 
-    @Override
-    public void  onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == 0) {
-            if (resultCode == getActivity().RESULT_OK) {
-
-                String contents = intent.getStringExtra("SCAN_RESULT");
-                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-
-                // Handle successful scan
-
-            } else if (resultCode == getActivity().RESULT_CANCELED) {
-                // Handle cancel
-                Log.i("App","Scan unsuccessful");
-            }
-        }}
 
 }
 
