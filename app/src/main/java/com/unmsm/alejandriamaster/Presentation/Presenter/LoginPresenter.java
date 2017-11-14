@@ -1,8 +1,5 @@
 package com.unmsm.alejandriamaster.Presentation.Presenter;
 
-/**
- * Created by christian on 6/28/17.
- */
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +8,9 @@ import android.util.Log;
 import com.unmsm.alejandriamaster.Data.Entities.loginData;
 import com.unmsm.alejandriamaster.Data.Remote.Request.LoginRequest;
 import com.unmsm.alejandriamaster.Data.Remote.ServiceGenerator;
+import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Contracs.LoginContract;
+import com.unmsm.alejandriamaster.Presentation.Utils.Preferences;
 
 import java.util.ArrayList;
 
@@ -45,13 +44,15 @@ public class LoginPresenter implements LoginContract.Presenter {
                     loginOpen = response.body();
                     Log.i("Estado", "entro por aca");
                     Log.i(username, String.valueOf(password));
-                    for (int i = 0; i < loginOpen.size(); i++) {
+
                         if (!loginOpen.isEmpty()) {
+                            Log.i("Usuario",String.valueOf(loginOpen.get(0).getUsuarioId()));
+                            Preferences.Guardar(ConstansGlobal.idUser,String.valueOf(loginOpen.get(0).getUsuarioId()),context);
                             mLoginView.successLoginUser();
                             mLoginView.setDialogMessage("Bienvenido");
 
                         }
-                    }
+
 
                 }
                 mLoginView.setLoadingIndicator(false);

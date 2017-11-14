@@ -6,4 +6,6 @@
     <string name="ingresar">Ingresar</string>
     <string name="scan">Scanear</string>
     <string name="error">Error</string>
+    <string name="registrar">Registrar</string>
+    <string name="Cancelar">Cancelar</string>
 </resources>

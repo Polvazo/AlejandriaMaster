@@ -7,9 +7,11 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.unmsm.alejandriamaster.Core.BaseActivity;
+import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Fragments.ScanFragment;
 import com.unmsm.alejandriamaster.Presentation.Presenter.ScanPresenter;
 import com.unmsm.alejandriamaster.Presentation.Utils.ActivityUtils;
+import com.unmsm.alejandriamaster.Presentation.Utils.Preferences;
 import com.unmsm.alejandriamaster.R;
 
 /**
@@ -43,6 +45,8 @@ public class ScanActivity extends BaseActivity {
                 showMessageError(getString(R.string.error));
             } else {
                 showMessage(result.getContents());
+                Preferences.Guardar(ConstansGlobal.idBook,result.getContents(),getApplicationContext());
+                next(this,null,LoanActivity.class,true);
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

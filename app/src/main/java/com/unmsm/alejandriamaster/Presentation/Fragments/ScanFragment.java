@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -19,7 +20,9 @@ import com.unmsm.alejandriamaster.Core.BaseFragment;
 
 import com.unmsm.alejandriamaster.Presentation.Activity.LoginAlejandria;
 import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
+import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Contracs.ScanContract;
+import com.unmsm.alejandriamaster.Presentation.Utils.Preferences;
 import com.unmsm.alejandriamaster.R;
 
 import java.util.List;
@@ -37,6 +40,8 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
 
     @BindView(R.id.btn_scan)
     Button btnScan;
+
+
 
 
     public static ScanFragment newInstance() {
@@ -112,18 +117,20 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         }
     }
 
-    @Override
+    public void getDataLoan(){
+
+    }
+
+
     public void getCodeQr() {
         IntentIntegrator integrator = new IntentIntegrator(getActivity());
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
         integrator.setPrompt("Scan!!");
         integrator.setCameraId(0);
+        integrator.setOrientationLocked(true);
         integrator.setBeepEnabled(false);
-        integrator.setCaptureActivity(ScanFragment.class);
         integrator.setBarcodeImageEnabled(false);
         integrator.initiateScan();
     }
-
-
 }
 

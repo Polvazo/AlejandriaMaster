@@ -23,6 +23,8 @@
         <activity
             android:name=".Presentation.Activity.ScanActivity"
             android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
             android:stateNotNeeded="true">
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SCAN" />
@@ -30,7 +32,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragment_loan"></activity>
+        <activity android:name=".Presentation.Activity.LoanActivity"></activity>
     </application>
 
 </manifest>
