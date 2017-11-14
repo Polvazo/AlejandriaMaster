@@ -37,7 +37,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         mLoginView.setLoadingIndicator(true);
         final LoginRequest loginService = ServiceGenerator.createService(LoginRequest.class);
         final Long contrasenha = Long.parseLong(password);
-        Call<ArrayList<loginData>> call = loginService.getLogin();
+        Call<ArrayList<loginData>> call = loginService.getLogin(username, password);
         call.enqueue(new Callback<ArrayList<loginData>>() {
             @Override
             public void onResponse(Call<ArrayList<loginData>> call, Response<ArrayList<loginData>> response) {
@@ -46,8 +46,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     Log.i("Estado", "entro por aca");
                     Log.i(username, String.valueOf(password));
                     for (int i = 0; i < loginOpen.size(); i++) {
-                        if (username.equals(loginOpen.get(i).getEmail()) && contrasenha.equals(loginOpen.get(i).codUsuario)) {
-                            Log.i(loginOpen.get(i).getEmail(), String.valueOf(loginOpen.get(i).getCodUsuario()));
+                        if (!loginOpen.isEmpty()) {
                             mLoginView.successLoginUser();
                             mLoginView.setDialogMessage("Bienvenido");
 

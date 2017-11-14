@@ -17,6 +17,6 @@ public interface ScanContract {
     }
 
     interface Presenter extends BasePresenter {
-        void ScanPhoto(String msg);
+
     }
 }

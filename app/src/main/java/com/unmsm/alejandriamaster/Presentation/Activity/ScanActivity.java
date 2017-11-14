@@ -33,7 +33,6 @@ public class ScanActivity extends BaseActivity {
         new ScanPresenter(scanFragment, this);
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -41,14 +40,13 @@ public class ScanActivity extends BaseActivity {
         if (result != null) {
             if (result.getContents() == null) {
 
-              showMessageError(getString(R.string.error));
+                showMessageError(getString(R.string.error));
             } else {
-               showMessage(result.getContents());
+                showMessage(result.getContents());
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-
 
 }

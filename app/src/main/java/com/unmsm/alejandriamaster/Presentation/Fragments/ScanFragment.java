@@ -119,6 +119,7 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         integrator.setPrompt("Scan!!");
         integrator.setCameraId(0);
         integrator.setBeepEnabled(false);
+        integrator.setCaptureActivity(ScanFragment.class);
         integrator.setBarcodeImageEnabled(false);
         integrator.initiateScan();
     }

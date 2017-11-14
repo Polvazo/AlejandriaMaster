@@ -11,7 +11,10 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
 import com.unmsm.alejandriamaster.Presentation.Contracs.ScanContract;
+import com.unmsm.alejandriamaster.Presentation.Fragments.LoginFragment;
+import com.unmsm.alejandriamaster.R;
 
 public class ScanPresenter implements ScanContract.Presenter {
     private final ScanContract.View mScanView;
@@ -23,12 +26,6 @@ public class ScanPresenter implements ScanContract.Presenter {
         this.mScanView.setPresenter(this);
     }
 
-
-    @Override
-    public void ScanPhoto(String msg) {
-        mScanView.setMessageError(msg);
-
-    }
 
 
     @Override
