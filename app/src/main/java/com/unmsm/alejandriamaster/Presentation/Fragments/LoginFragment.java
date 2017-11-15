@@ -62,6 +62,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
         return root;
     }
 
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

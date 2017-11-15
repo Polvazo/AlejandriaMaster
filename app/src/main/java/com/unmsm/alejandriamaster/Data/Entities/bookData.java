@@ -12,6 +12,31 @@ public class bookData {
     public String title;
     @SerializedName("autor")
     public String autor;
+    @SerializedName("id")
+    public Integer idBook;
+
+    @SerializedName("estado")
+    public boolean estado;
+
+    public bookData(boolean estado) {
+        this.estado = estado;
+    }
+
+    public Integer getIdBook() {
+        return idBook;
+    }
+
+    public void setIdBook(Integer idBook) {
+        this.idBook = idBook;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     public String getTitle() {
         return title;

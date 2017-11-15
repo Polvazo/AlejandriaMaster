@@ -7,4 +7,6 @@ package com.unmsm.alejandriamaster.Presentation.Constans;
 public class ConstansGlobal {
     public static String idUser="idUser";
     public static String idBook="idBook";
+    public static String idLoan="idLoan";
+    public static boolean estadoLoanCancel = false;
 }

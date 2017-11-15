@@ -44,12 +44,10 @@ public class ScanActivity extends BaseActivity {
 
                 showMessageError(getString(R.string.error));
             } else {
-                showMessage(result.getContents());
                 Preferences.Guardar(ConstansGlobal.idBook,result.getContents(),getApplicationContext());
                 next(this,null,LoanActivity.class,true);
             }
         } else {
-            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 

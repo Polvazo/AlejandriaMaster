@@ -40,7 +40,7 @@ public class ScanPresenter implements ScanContract.Presenter {
     }
 
     @Override
-    public void getLoanData(int idUser, int idBook) {
+    public void getLoanData() {
         mScanView.getCodeQr();
     }
 

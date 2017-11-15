@@ -1,6 +1,7 @@
 package com.unmsm.alejandriamaster.Presentation.Fragments;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobsandgeeks.saripaar.Validator;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
 
 import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
@@ -33,6 +35,8 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     private Button ingresar;
     private String userid;
     private String bookid;
+    private ProgressDialog dialog;
+    private boolean isLoading = false;
 
     public static LoanFragment newInstance() {
         return new LoanFragment();
@@ -56,7 +60,8 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mPresenter.pathLoan();
+                mPresenter.pathLoanBook();
 
             }
         });
@@ -66,7 +71,26 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        dialog = new ProgressDialog(getContext());
+        dialog.setIndeterminate(true);
+        dialog.setMessage("Ingresando devolucion...!!!");
+        dialog.setCancelable(false);
+        dialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.circle_progress));
+    }
+    @Override
+    public void successLoginUser(){
+        next(getActivity(),null,ScanActivity.class,true);
+    }
 
+    @Override
+    public void setLoadingIndicator(boolean active) {
+        if(active == false){
+            dialog.dismiss();
+            isLoading = false;
+        }else if(active==true){
+            isLoading = true;
+            dialog.show();
+        }
     }
 
     @Override
@@ -74,11 +98,6 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
         super.onCreate(savedInstanceState);
     }
 
-
-    @Override
-    public void setLoadingIndicator(boolean active) {
-
-    }
 
     @Override
     public void setMessageError(String error) {

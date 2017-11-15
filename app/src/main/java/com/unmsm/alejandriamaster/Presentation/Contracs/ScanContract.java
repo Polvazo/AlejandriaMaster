@@ -18,7 +18,7 @@ public interface ScanContract {
     }
 
     interface Presenter extends BasePresenter {
-      void getLoanData(int user, int book);
+      void getLoanData();
 
     }
 }

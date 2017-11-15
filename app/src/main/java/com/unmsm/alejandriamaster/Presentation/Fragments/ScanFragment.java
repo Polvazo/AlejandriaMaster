@@ -18,6 +18,7 @@ import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
 
+import com.unmsm.alejandriamaster.Presentation.Activity.LoanActivity;
 import com.unmsm.alejandriamaster.Presentation.Activity.LoginAlejandria;
 import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
 import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
@@ -112,7 +113,7 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_scan:
-                getCodeQr();
+               mPresenter.getLoanData();
                 break;
         }
     }
@@ -125,9 +126,8 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
     public void getCodeQr() {
         IntentIntegrator integrator = new IntentIntegrator(getActivity());
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-        integrator.setPrompt("Scan!!");
+        integrator.setPrompt("Scan");
         integrator.setCameraId(0);
-        integrator.setOrientationLocked(true);
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(false);
         integrator.initiateScan();
