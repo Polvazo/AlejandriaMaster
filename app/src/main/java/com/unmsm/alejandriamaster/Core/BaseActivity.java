@@ -1,7 +1,9 @@
 package com.unmsm.alejandriamaster.Core;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,17 +20,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.unmsm.alejandriamaster.Presentation.Activity.LoginAlejandria;
+import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
+import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.R;
 
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-
 /**
  * Base Actividad de la cual se va a exteder las otras actividades de la app
  */
 public class BaseActivity extends AppCompatActivity {
+
+    AlertDialog alertDialog;
+
     protected void injectView() {
         ButterKnife.bind(this);
     }
@@ -56,7 +63,23 @@ public class BaseActivity extends AppCompatActivity {
 
     public void showMessage(String message) {
         CoordinatorLayout container = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
-        this.showMessageSnack(container, message, R.color.black);
+        this.showMessageSnack(container, message, R.color.colorPrimaryDark);
+    }
+
+    public void closeApp(boolean estado) {
+
+        if (ConstansGlobal.tiempoPrimerClick + ConstansGlobal.INTERVALO > System.currentTimeMillis()) {
+            super.onBackPressed();
+            if (estado) {
+                return;
+            } else {
+                next(this, null, LoginAlejandria.class, true);
+            }
+
+        } else {
+            Toast.makeText(this, R.string.PresionaSalir, Toast.LENGTH_SHORT).show();
+        }
+        ConstansGlobal.tiempoPrimerClick = System.currentTimeMillis();
     }
 
     public void showMessageSnack(View container, String message, int colorResource) {
@@ -128,7 +151,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
-
 
 
 }

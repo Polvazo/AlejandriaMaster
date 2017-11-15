@@ -9,4 +9,6 @@ public class ConstansGlobal {
     public static String idBook="idBook";
     public static String idLoan="idLoan";
     public static boolean estadoLoanCancel = false;
+    public static final int INTERVALO = 2000; //2 segundos para salir
+    public static long tiempoPrimerClick;
 }

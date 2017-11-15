@@ -6,6 +6,9 @@
     <string name="ingresar">Ingresar</string>
     <string name="scan">Scanear</string>
     <string name="error">Error</string>
+    <string name="CanceloScan">Se canceló el scaneo</string>
     <string name="registrar">Registrar</string>
     <string name="Cancelar">Cancelar</string>
+    <string name="PresionaSalir">Vuelve a presionar para salir</string>
+    <string name="Manualmente">Manual</string>
 </resources>

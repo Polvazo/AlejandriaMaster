@@ -35,6 +35,12 @@ public class ScanActivity extends BaseActivity {
         new ScanPresenter(scanFragment, this);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        closeApp(false);
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -42,10 +48,10 @@ public class ScanActivity extends BaseActivity {
         if (result != null) {
             if (result.getContents() == null) {
 
-                showMessageError(getString(R.string.error));
+                showMessage(getString(R.string.CanceloScan));
             } else {
-                Preferences.Guardar(ConstansGlobal.idBook,result.getContents(),getApplicationContext());
-                next(this,null,LoanActivity.class,true);
+                Preferences.Guardar(ConstansGlobal.idBook, result.getContents(), getApplicationContext());
+                next(this, null, LoanActivity.class, true);
             }
         } else {
         }

@@ -26,6 +26,11 @@
 
         <TextView
             android:layout_width="match_parent"
+            android:text="Libro"
+            android:drawableLeft="@drawable/ic_book"
+            android:textSize="30dp"
+
+            android:drawablePadding="10dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black" />
 
@@ -36,6 +41,8 @@
             android:textColor="@color/black" />
 
         <TextView
+
+            android:text="Alumno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black" />

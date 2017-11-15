@@ -18,6 +18,7 @@
         android:src="@drawable/logofisi" />
 
     <RelativeLayout
+        android:elevation="10dp"
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -32,18 +33,41 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/fisi_code_qr" />
 
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
-            android:background="@color/buttonColor"
-            android:padding="15dp"
-            android:text="@string/scan"
-            android:id="@+id/btn_scan"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_scan"
+                android:layout_weight="1"
+                android:elevation="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/buttonColor"
+                android:padding="15dp"
+                android:text="@string/Manualmente"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                tools:ignore="SpUsage" />
+            <Button
+                android:elevation="10dp"
+                android:id="@+id/btn_manual"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/buttonColor"
+                android:padding="15dp"
+                android:text="@string/scan"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
 
     </RelativeLayout>
 
