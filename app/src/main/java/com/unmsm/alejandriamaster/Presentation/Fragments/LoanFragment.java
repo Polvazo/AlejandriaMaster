@@ -1,7 +1,9 @@
 package com.unmsm.alejandriamaster.Presentation.Fragments;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -36,6 +38,7 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     private String userid;
     private String bookid;
     private ProgressDialog dialog;
+    private AlertDialog alertDialog;
     private boolean isLoading = false;
 
     public static LoanFragment newInstance() {
@@ -47,13 +50,13 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
         View root = inflater.inflate(R.layout.fragment_loan, container, false);
         usuario = (TextView) root.findViewById(R.id.txt_user);
         libro = (TextView) root.findViewById(R.id.txt_book);
-
+        dialog = new ProgressDialog(getActivity());
         if (Preferences.obtener(ConstansGlobal.idUser, getActivity()) == null && Preferences.obtener(ConstansGlobal.idBook, getActivity()) == null) {
             Toast.makeText(getActivity(), "Hubo un problema", Toast.LENGTH_SHORT).show();
         }
 
-        Integer id = Integer.parseInt(Preferences.obtener(ConstansGlobal.idBook,getActivity()));
-        mPresenter.checkBook("17");
+
+        mPresenter.checkBook(Preferences.obtener(ConstansGlobal.idBook, getActivity()));
 
         userid = Preferences.obtener(ConstansGlobal.idUser, getActivity());
         bookid = Preferences.obtener(ConstansGlobal.idBook, getActivity());
@@ -73,25 +76,48 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        dialog = new ProgressDialog(getContext());
+
+
         dialog.setIndeterminate(true);
-        dialog.setMessage("Ingresando devolucion...!!!");
+        dialog.setMessage("Verificando libro");
         dialog.setCancelable(false);
         dialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.circle_progress));
+
+        alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setTitle("ALEJANDRIA MASTER");
+        alertDialog.setCancelable(false);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        next(getActivity(), null, ScanActivity.class, true);
+                    }
+                });
     }
+
     @Override
-    public void successLoginUser(){
-        next(getActivity(),null,ScanActivity.class,true);
+    public void successLoginUser() {
+        next(getActivity(), null, ScanActivity.class, true);
     }
 
     @Override
     public void setLoadingIndicator(boolean active) {
-        if(active == false){
+        if (active == false) {
             dialog.dismiss();
             isLoading = false;
-        }else if(active==true){
+        } else if (active == true) {
             isLoading = true;
             dialog.show();
+        }
+    }
+
+    @Override
+    public void setMessage(boolean active, String message) {
+        if (active == false) {
+            alertDialog.setMessage(message);
+            isLoading = false;
+        } else if (active == true) {
+            alertDialog.setMessage(message);
+            alertDialog.show();
         }
     }
 

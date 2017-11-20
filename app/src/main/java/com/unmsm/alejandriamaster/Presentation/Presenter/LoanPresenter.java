@@ -22,9 +22,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by USUARIO on 14/11/2017.
- */
 
 public class LoanPresenter implements LoanContract.Presenter {
     private final LoanContract.View mLoanView;
@@ -41,7 +38,7 @@ public class LoanPresenter implements LoanContract.Presenter {
     @Override
     public void checkBook(String idBook) {
         Log.i("estado", "loanData");
-
+        mLoanView.setLoadingIndicator(true);
         scanRequest scanrequest = ServiceGenerator.createService(scanRequest.class);
         Call<bookData> call = scanrequest.checkBook(idBook);
         call.enqueue(new Callback<bookData>() {
@@ -51,11 +48,16 @@ public class LoanPresenter implements LoanContract.Presenter {
                 if (response.isSuccessful()) {
                     Log.i("estado", "por aca entro");
                     bookdata = response.body();
+                    if (bookdata.isEstado() == true) {
+                        mLoanView.setLoadingIndicator(false);
+                        mLoanView.setMessage(true, "El libro que intentó escanear en estos momentos esta disponible y no existe prestamo");
+                    }
+                    mLoanView.setLoadingIndicator(false);
 
                 }
                 if (response.code() == 404) {
-                    Toast.makeText(context, "libro no existe", Toast.LENGTH_SHORT).show();
-
+                    mLoanView.setLoadingIndicator(false);
+                    mLoanView.setMessage(true, "El libro que intento escanear no existe, por favor intente otra vez");
                 }
             }
 

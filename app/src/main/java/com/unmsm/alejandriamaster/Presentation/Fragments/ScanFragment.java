@@ -119,8 +119,6 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         }
     }
 
-
-
     public void getCodeQr() {
         IntentIntegrator integrator = new IntentIntegrator(getActivity());
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
@@ -129,8 +127,8 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(false);
         integrator.initiateScan();
-    }
 
+    }
 
 
 }

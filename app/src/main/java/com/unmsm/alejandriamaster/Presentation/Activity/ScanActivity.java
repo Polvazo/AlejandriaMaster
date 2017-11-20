@@ -50,10 +50,8 @@ public class ScanActivity extends BaseActivity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() == null) {
-
-                //  showMessage(getString(R.string.CanceloScan));
+                showMessage(getString(R.string.CanceloScan));
             } else {
-
                 Preferences.Guardar(ConstansGlobal.idBook, result.getContents(), getApplicationContext());
                 next(this, null, LoanActivity.class, true);
             }

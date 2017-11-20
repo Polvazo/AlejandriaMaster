@@ -8,6 +8,8 @@ public interface LoanContract {
     interface View extends BaseView<Presenter> {
         void successLoginUser();
 
+        void setMessage(boolean active, String message);
+
         void errorScanQr(String msg);
         void successScanQr(String msg);
         void getTextView(String user, String book);
