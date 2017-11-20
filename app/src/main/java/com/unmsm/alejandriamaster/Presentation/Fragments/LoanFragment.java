@@ -52,10 +52,12 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
             Toast.makeText(getActivity(), "Hubo un problema", Toast.LENGTH_SHORT).show();
         }
 
+        Integer id = Integer.parseInt(Preferences.obtener(ConstansGlobal.idBook,getActivity()));
+        mPresenter.checkBook("17");
+
         userid = Preferences.obtener(ConstansGlobal.idUser, getActivity());
         bookid = Preferences.obtener(ConstansGlobal.idBook, getActivity());
-        mPresenter.getLoanData(Integer.parseInt(userid), Integer.parseInt(bookid));
-
+        //mPresenter.getLoanData(Integer.parseInt(userid), Integer.parseInt(bookid));
         ingresar = (Button) root.findViewById(R.id.btn_prestamo);
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override

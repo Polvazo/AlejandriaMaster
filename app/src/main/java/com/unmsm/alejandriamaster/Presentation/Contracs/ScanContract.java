@@ -11,14 +11,14 @@ public interface ScanContract {
 
     interface View extends BaseView<Presenter> {
         void errorScanQr(String msg);
-        void successScanQr(String msg);
 
+        void successScanQr(String msg);
 
         void getCodeQr();
     }
 
     interface Presenter extends BasePresenter {
-      void getLoanData();
+        void getLoanData();
 
     }
 }

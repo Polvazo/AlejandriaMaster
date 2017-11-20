@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -114,13 +115,10 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         switch (view.getId()) {
             case R.id.btn_scan:
                mPresenter.getLoanData();
-                break;
+               break;
         }
     }
 
-    public void getDataLoan(){
-
-    }
 
 
     public void getCodeQr() {
@@ -132,5 +130,8 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         integrator.setBarcodeImageEnabled(false);
         integrator.initiateScan();
     }
+
+
+
 }
 

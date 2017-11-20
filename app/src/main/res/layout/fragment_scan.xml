@@ -5,68 +5,87 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+    <TextView
+        android:id="@+id/txt_fisi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="30sp"
+        android:gravity="center"
+        android:text="@string/fisi"
+        android:textColor="@color/blanco"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <ImageButton
         android:id="@+id/user_profile_photo"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_alignTop="@+id/txt_fisi"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100sp"
         android:background="@drawable/user_profile_image_background"
         android:elevation="4dp"
         android:padding="16dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/logofisi" />
+        android:src="@drawable/logofisi"
+        />
 
     <RelativeLayout
-        android:elevation="10dp"
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_profile_photo"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="30dp"
-        android:background="@color/blanco">
+        android:layout_margin="40dp"
+        android:background="@color/blanco"
+        android:elevation="10sp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/fisi_code_qr" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_scan"
-                android:layout_weight="1"
-                android:elevation="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/buttonColor"
-                android:padding="15dp"
-                android:text="@string/Manualmente"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="18dp"
                 android:layout_marginRight="10dp"
-                tools:ignore="SpUsage" />
-            <Button
-                android:elevation="10dp"
-                android:id="@+id/btn_manual"
-                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:background="@color/buttonColor"
+                android:elevation="10dp"
                 android:padding="15dp"
                 android:text="@string/scan"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                tools:ignore="SpUsage"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btn_manual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@color/buttonColor"
+                android:elevation="10dp"
+                android:padding="15dp"
+                android:text="@string/Manualmente"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp" />
         </LinearLayout>
 
     </RelativeLayout>

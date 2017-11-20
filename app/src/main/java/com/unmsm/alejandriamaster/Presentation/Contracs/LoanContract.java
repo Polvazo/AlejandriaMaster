@@ -16,6 +16,8 @@ public interface LoanContract {
            }
 
     interface Presenter extends BasePresenter {
+        void checkBook(String idBook);
+
         void getLoanData(int user, int book);
 
         void pathLoan();

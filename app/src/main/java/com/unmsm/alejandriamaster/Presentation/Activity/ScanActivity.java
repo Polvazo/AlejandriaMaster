@@ -1,7 +1,9 @@
 package com.unmsm.alejandriamaster.Presentation.Activity;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -43,13 +45,15 @@ public class ScanActivity extends BaseActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
+        Log.i("estado", "entro al fragment ");
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() == null) {
 
-                showMessage(getString(R.string.CanceloScan));
+                //  showMessage(getString(R.string.CanceloScan));
             } else {
+
                 Preferences.Guardar(ConstansGlobal.idBook, result.getContents(), getApplicationContext());
                 next(this, null, LoanActivity.class, true);
             }

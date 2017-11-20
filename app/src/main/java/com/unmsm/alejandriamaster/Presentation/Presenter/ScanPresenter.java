@@ -11,11 +11,14 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import com.unmsm.alejandriamaster.Data.Entities.bookData;
 import com.unmsm.alejandriamaster.Data.Entities.loanData;
 import com.unmsm.alejandriamaster.Data.Entities.loginData;
 import com.unmsm.alejandriamaster.Data.Remote.Request.LoginRequest;
 import com.unmsm.alejandriamaster.Data.Remote.Request.loanRequest;
+import com.unmsm.alejandriamaster.Data.Remote.Request.scanRequest;
 import com.unmsm.alejandriamaster.Data.Remote.ServiceGenerator;
+import com.unmsm.alejandriamaster.Presentation.Activity.LoanActivity;
 import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
 import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Contracs.ScanContract;
@@ -29,9 +32,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal.idUser;
+
 public class ScanPresenter implements ScanContract.Presenter {
     private final ScanContract.View mScanView;
     private Context context;
+    private ArrayList<bookData> bookdata;
 
     public ScanPresenter(ScanContract.View mScanView, @NonNull Context context) {
         this.mScanView = mScanView;
@@ -43,6 +49,9 @@ public class ScanPresenter implements ScanContract.Presenter {
     public void getLoanData() {
         mScanView.getCodeQr();
     }
+
+
+
 
     @Override
     public void start() {

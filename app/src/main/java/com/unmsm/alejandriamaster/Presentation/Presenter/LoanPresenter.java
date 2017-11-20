@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.unmsm.alejandriamaster.Data.Entities.bookData;
 import com.unmsm.alejandriamaster.Data.Entities.loanData;
 import com.unmsm.alejandriamaster.Data.Remote.Request.loanRequest;
+import com.unmsm.alejandriamaster.Data.Remote.Request.scanRequest;
 import com.unmsm.alejandriamaster.Data.Remote.ServiceGenerator;
 import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Contracs.LoanContract;
@@ -29,11 +30,40 @@ public class LoanPresenter implements LoanContract.Presenter {
     private final LoanContract.View mLoanView;
     private Context context;
     private ArrayList<loanData> prestamo;
+    private bookData bookdata;
 
     public LoanPresenter(LoanContract.View mLoanView, @NonNull Context context) {
         this.mLoanView = mLoanView;
         this.context = context;
         this.mLoanView.setPresenter(this);
+    }
+
+    @Override
+    public void checkBook(String idBook) {
+        Log.i("estado", "loanData");
+
+        scanRequest scanrequest = ServiceGenerator.createService(scanRequest.class);
+        Call<bookData> call = scanrequest.checkBook(idBook);
+        call.enqueue(new Callback<bookData>() {
+            @Override
+            public void onResponse(Call<bookData> call, Response<bookData> response) {
+                Log.i("estadoLoanData", String.valueOf(response.code()));
+                if (response.isSuccessful()) {
+                    Log.i("estado", "por aca entro");
+                    bookdata = response.body();
+
+                }
+                if (response.code() == 404) {
+                    Toast.makeText(context, "libro no existe", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<bookData> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
