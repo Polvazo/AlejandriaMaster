@@ -35,6 +35,7 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     private TextView usuario;
     private TextView libro;
     private Button ingresar;
+    private Button cancelar;
     private String userid;
     private String bookid;
     private ProgressDialog dialog;
@@ -55,12 +56,13 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
             Toast.makeText(getActivity(), "Hubo un problema", Toast.LENGTH_SHORT).show();
         }
 
-
+        Log.i("estado", "paso por LoagnFramgemt para e post");
         mPresenter.checkBook(Preferences.obtener(ConstansGlobal.idBook, getActivity()));
 
         userid = Preferences.obtener(ConstansGlobal.idUser, getActivity());
         bookid = Preferences.obtener(ConstansGlobal.idBook, getActivity());
-        //mPresenter.getLoanData(Integer.parseInt(userid), Integer.parseInt(bookid));
+
+        mPresenter.getLoanData(Integer.parseInt(userid), Integer.parseInt(bookid));
         ingresar = (Button) root.findViewById(R.id.btn_prestamo);
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +70,14 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
                 mPresenter.pathLoan();
                 mPresenter.pathLoanBook();
 
+            }
+        });
+        cancelar = (Button) root.findViewById(R.id.btn_cancelar);
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Se canceló la confirmación", Toast.LENGTH_SHORT).show();
+                next(getActivity(), null, ScanActivity.class, true);
             }
         });
         return root;

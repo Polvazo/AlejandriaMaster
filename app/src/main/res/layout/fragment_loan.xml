@@ -26,9 +26,11 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:text="Libro"
+            android:text="LIBRO"
+            android:layout_gravity="center"
+            android:padding="10dp"
             android:drawableLeft="@drawable/ic_book"
-            android:textSize="30dp"
+            android:textSize="20dp"
 
             android:drawablePadding="10dp"
             android:layout_height="wrap_content"
@@ -36,22 +38,34 @@
 
         <TextView
             android:id="@+id/txt_book"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black" />
 
         <TextView
 
-            android:text="Alumno"
+            android:text="ALUMNO"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/iconuser"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txt_user"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -66,6 +80,7 @@
             android:layout_height="wrap_content"
             android:background="@color/buttonColor"
             android:text="@string/Cancelar"
+            android:id="@+id/btn_cancelar"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:textAllCaps="false"

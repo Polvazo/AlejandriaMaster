@@ -48,7 +48,8 @@ public class LoanPresenter implements LoanContract.Presenter {
                 if (response.isSuccessful()) {
                     Log.i("estado", "por aca entro");
                     bookdata = response.body();
-                    if (bookdata.isEstado() == true) {
+                    assert bookdata != null;
+                    if (bookdata.isEstado()) {
                         mLoanView.setLoadingIndicator(false);
                         mLoanView.setMessage(true, "El libro que intentó escanear en estos momentos esta disponible y no existe prestamo");
                     }
@@ -81,11 +82,12 @@ public class LoanPresenter implements LoanContract.Presenter {
                     Log.i("estado", "por aca entro");
                     prestamo = response.body();
                     if (!prestamo.isEmpty()) {
-                        mLoanView.getTextView(prestamo.get(0).getUserData().getName() + prestamo.get(0).getUserData().getLastname(),
-                                prestamo.get(0).getBookData().getAutor());
+                        mLoanView.getTextView(prestamo.get(0).getUserData().getName() + " "+prestamo.get(0).getUserData().getLastname(),
+                                prestamo.get(0).getBookData().getTitle()+" - "+prestamo.get(0).getBookData().getAutor());
                         Preferences.Guardar(ConstansGlobal.idLoan, String.valueOf(prestamo.get(0).getIdLoan()), context);
+                    } else {
+                        mLoanView.setMessage(true, "Prestamo no existe");
                     }
-                    mLoanView.setDialogMessage("Prestamo no encontrado");
 
 
                 }

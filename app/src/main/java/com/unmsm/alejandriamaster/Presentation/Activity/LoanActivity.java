@@ -27,4 +27,8 @@ public class LoanActivity extends BaseActivity {
 
         new LoanPresenter(loanFragment, this);
     }
+    @Override
+    public void onBackPressed() {
+        closeApp(false);
+    }
 }
