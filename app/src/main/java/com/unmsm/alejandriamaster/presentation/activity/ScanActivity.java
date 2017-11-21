@@ -53,7 +53,6 @@ public class ScanActivity extends BaseActivity {
                 Preferences.Guardar(ConstansGlobal.idBook, result.getContents(), getApplicationContext());
                 next(this, null, LoanActivity.class, true);
             }
-        } else {
         }
     }
 

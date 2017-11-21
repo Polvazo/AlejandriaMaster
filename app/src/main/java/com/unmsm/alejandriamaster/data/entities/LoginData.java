@@ -2,7 +2,7 @@ package com.unmsm.alejandriamaster.data.entities;
 
 import com.google.gson.annotations.SerializedName;
 
-public class loginData {
+public class LoginData {
 
     @SerializedName("cod_usuario")
     public Long codUsuario;

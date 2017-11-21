@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 
 
-public class loanData {
+public class LoanData {
     @SerializedName("usuario")
-    userData userData;
+    UserData userData;
 
     @SerializedName("libro")
-    bookData bookData;
+    BookData bookData;
 
     @SerializedName("id")
     Integer idLoan;
@@ -17,7 +17,7 @@ public class loanData {
     @SerializedName("estado")
     Boolean estado;
 
-    public loanData(Boolean estado) {
+    public LoanData(Boolean estado) {
         this.estado = estado;
     }
 
@@ -37,19 +37,19 @@ public class loanData {
         this.idLoan = idLoan;
     }
 
-    public com.unmsm.alejandriamaster.data.entities.userData getUserData() {
+    public UserData getUserData() {
         return userData;
     }
 
-    public void setUserData(com.unmsm.alejandriamaster.data.entities.userData userData) {
+    public void setUserData(UserData userData) {
         this.userData = userData;
     }
 
-    public com.unmsm.alejandriamaster.data.entities.bookData getBookData() {
+    public BookData getBookData() {
         return bookData;
     }
 
-    public void setBookData(com.unmsm.alejandriamaster.data.entities.bookData bookData) {
+    public void setBookData(BookData bookData) {
         this.bookData = bookData;
     }
 }

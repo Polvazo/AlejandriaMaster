@@ -2,7 +2,7 @@ package com.unmsm.alejandriamaster.data.entities;
 
 import com.google.gson.annotations.SerializedName;
 
-public class bookData {
+public class BookData {
 
     @SerializedName("titulo")
     public String title;
@@ -14,7 +14,7 @@ public class bookData {
     @SerializedName("estado")
     public boolean estado;
 
-    public bookData(boolean estado) {
+    public BookData(boolean estado) {
         this.estado = estado;
     }
 

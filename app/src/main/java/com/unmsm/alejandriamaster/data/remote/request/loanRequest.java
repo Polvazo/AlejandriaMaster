@@ -1,7 +1,7 @@
-package com.unmsm.alejandriamaster.data.remote.Request;
+package com.unmsm.alejandriamaster.data.remote.request;
 
-import com.unmsm.alejandriamaster.data.entities.bookData;
-import com.unmsm.alejandriamaster.data.entities.loanData;
+import com.unmsm.alejandriamaster.data.entities.BookData;
+import com.unmsm.alejandriamaster.data.entities.LoanData;
 
 import java.util.ArrayList;
 
@@ -19,12 +19,12 @@ public interface loanRequest {
 
 
     @GET("/api/prestamos/")
-    Call<ArrayList<loanData>> getLoan(@Query("filter[where][usuarioId]") int username,
+    Call<ArrayList<LoanData>> getLoan(@Query("filter[where][usuarioId]") int username,
                                       @Query("filter[where][libroId]") int idbook);
 
     @PATCH("/api/prestamos/{id}/")
-    Call<ResponseBody> pathLoan (@Path("id") Integer idLoan, @Body loanData loanData);
+    Call<ResponseBody> pathLoan (@Path("id") Integer idLoan, @Body LoanData loanData);
 
     @PATCH("/api/libros/{id}/")
-    Call<ResponseBody> pathLibro (@Path("id") Integer idLoan, @Body bookData loanData);
+    Call<ResponseBody> pathLibro (@Path("id") Integer idLoan, @Body BookData loanData);
 }

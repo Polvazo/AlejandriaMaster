@@ -2,7 +2,7 @@ package com.unmsm.alejandriamaster.data.entities;
 
 import com.google.gson.annotations.SerializedName;
 
-public class userData {
+public class UserData {
 
     @SerializedName("nombre")
     public String name;

@@ -35,8 +35,6 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     private TextView libro;
     private Button ingresar;
     private Button cancelar;
-    private String userid;
-    private String bookid;
     private ProgressDialog dialog;
     private AlertDialog alertDialog;
     private boolean isLoading = false;
@@ -111,10 +109,10 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
 
     @Override
     public void setLoadingIndicator(boolean active) {
-        if (active == false) {
+        if (!active) {
             dialog.dismiss();
             isLoading = false;
-        } else if (active == true) {
+        } else if (active) {
             isLoading = true;
             dialog.show();
         }
@@ -122,10 +120,10 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
 
     @Override
     public void setMessage(boolean active, String message) {
-        if (active == false) {
+        if (!active) {
             alertDialog.setMessage(message);
             isLoading = false;
-        } else if (active == true) {
+        } else if (active) {
             alertDialog.setMessage(message);
             alertDialog.show();
         }

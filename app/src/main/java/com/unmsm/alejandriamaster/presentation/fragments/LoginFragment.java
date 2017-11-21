@@ -122,10 +122,10 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
 
     @Override
     public void setLoadingIndicator(boolean active) {
-        if(active == false){
+        if(!active){
             dialog.dismiss();
             isLoading = false;
-        }else if(active==true){
+        }else if(active){
             isLoading = true;
             dialog.show();
         }

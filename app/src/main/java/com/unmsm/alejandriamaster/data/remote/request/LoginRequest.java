@@ -1,7 +1,7 @@
-package com.unmsm.alejandriamaster.data.remote.Request;
+package com.unmsm.alejandriamaster.data.remote.request;
 
 
-import com.unmsm.alejandriamaster.data.entities.loginData;
+import com.unmsm.alejandriamaster.data.entities.LoginData;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 public interface LoginRequest {
 
     @GET("/api/logins/")
-    Call<ArrayList<loginData>> getLogin(@Query("filter[where][email]") String username,
+    Call<ArrayList<LoginData>> getLogin(@Query("filter[where][email]") String username,
                                         @Query("filter[where][password]") String password);
 
 }
