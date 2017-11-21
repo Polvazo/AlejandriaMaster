@@ -33,8 +33,8 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     private LoanContract.Presenter mPresenter;
     private TextView usuario;
     private TextView libro;
-    private Button ingresar;
-    private Button cancelar;
+    public Button ingresar;
+    public Button cancelar;
     private ProgressDialog dialog;
     private AlertDialog alertDialog;
     boolean isLoading = false;
@@ -137,12 +137,12 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
 
     @Override
     public void setMessageError(String error) {
-
+        Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void setDialogMessage(String message) {
-
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
