@@ -33,8 +33,8 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     private LoanContract.Presenter mPresenter;
     private TextView usuario;
     private TextView libro;
-    Button ingresar;
-    Button cancelar;
+    private Button ingresar;
+    private Button cancelar;
     private ProgressDialog dialog;
     private AlertDialog alertDialog;
     boolean isLoading = false;

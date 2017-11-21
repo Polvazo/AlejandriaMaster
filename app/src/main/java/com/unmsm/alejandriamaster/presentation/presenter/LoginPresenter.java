@@ -36,7 +36,6 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void loginUser(final String username, final String password) {
         mLoginView.setLoadingIndicator(true);
         final LoginRequest loginService = ServiceGenerator.createService(LoginRequest.class);
-        final Long contrasenha = Long.parseLong(password);
         Call<ArrayList<LoginData>> call = loginService.getLogin(username, password);
         call.enqueue(new Callback<ArrayList<LoginData>>() {
             @Override

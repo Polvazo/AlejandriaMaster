@@ -10,7 +10,7 @@ import com.unmsm.alejandriamaster.presentation.contracs.ScanContract;
 
 public class ScanPresenter implements ScanContract.Presenter {
     private final ScanContract.View mScanView;
-    Context context;
+    private Context context;
 
     public ScanPresenter(ScanContract.View mScanView, @NonNull Context context) {
         this.mScanView = mScanView;

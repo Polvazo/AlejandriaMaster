@@ -31,7 +31,6 @@ public class LoginAlejandria extends BaseActivity {
     }
 
     public void showMessageError(String message) {
-        CoordinatorLayout container = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
         super.showMessage(message);
     }
 
