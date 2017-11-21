@@ -29,4 +29,5 @@
     <string name="Welcome">Bienvenido</string>
     <string name="incorrecto">Email o contraseña incorrecto(s)</string>
     <string name="errorLoging">Ocurrió un error al tratar de ingresar, por favor intente de nuevo</string>
+    <string name="errorConexion">Hubo un error de conexion</string>
 </resources>

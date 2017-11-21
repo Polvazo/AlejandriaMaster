@@ -37,7 +37,7 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
     private Button cancelar;
     private ProgressDialog dialog;
     private AlertDialog alertDialog;
-    private boolean isLoading = false;
+    boolean isLoading = false;
 
     public static LoanFragment newInstance() {
         return new LoanFragment();

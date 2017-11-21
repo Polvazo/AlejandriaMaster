@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 
 
 
-public interface loanRequest {
+public interface LoanRequest {
 
 
     @GET("/api/prestamos/")

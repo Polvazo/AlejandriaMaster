@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 
-public interface scanRequest {
+public interface ScanRequest {
 
     @GET("api/libros/{id}")
     Call<BookData> checkBook(@Path("id") String idBook);

@@ -8,7 +8,7 @@ public class Preferences {
     private static final String PREFFERS_NAME = "usuarioAndroid";
 
 
-    public static void Guardar(String clave, String valor, Context context){
+    public static void guardar(String clave, String valor, Context context){
 
         SharedPreferences prefs = context.getSharedPreferences(PREFFERS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -21,12 +21,6 @@ public class Preferences {
         SharedPreferences prefs = context.getSharedPreferences(PREFFERS_NAME, Context.MODE_PRIVATE);
         String valor = prefs.getString(clave, null);
         return valor;
-
-    }
-    public static void Elminar (Context context){
-
-        SharedPreferences prefs = context.getSharedPreferences(PREFFERS_NAME, Context.MODE_PRIVATE);
-         prefs.edit().clear().commit();
 
     }
 

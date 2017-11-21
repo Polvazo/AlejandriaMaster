@@ -22,7 +22,7 @@ public class SplashScreem extends AppCompatActivity {
         window.setFormat(PixelFormat.RGBA_8888);
     }
 
-    Thread splashTread;
+    private Thread splashTread;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

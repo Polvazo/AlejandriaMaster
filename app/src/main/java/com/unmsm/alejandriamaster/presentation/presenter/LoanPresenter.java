@@ -7,8 +7,8 @@ import android.widget.Toast;
 
 import com.unmsm.alejandriamaster.data.entities.BookData;
 import com.unmsm.alejandriamaster.data.entities.LoanData;
-import com.unmsm.alejandriamaster.data.remote.request.loanRequest;
-import com.unmsm.alejandriamaster.data.remote.request.scanRequest;
+import com.unmsm.alejandriamaster.data.remote.request.LoanRequest;
+import com.unmsm.alejandriamaster.data.remote.request.ScanRequest;
 import com.unmsm.alejandriamaster.data.remote.ServiceGenerator;
 import com.unmsm.alejandriamaster.presentation.constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.presentation.contracs.LoanContract;
@@ -40,7 +40,7 @@ public class LoanPresenter implements LoanContract.Presenter {
     public void checkBook(String idBook) {
 
         mLoanView.setLoadingIndicator(true);
-        scanRequest scanrequest = ServiceGenerator.createService(scanRequest.class);
+        ScanRequest scanrequest = ServiceGenerator.createService(ScanRequest.class);
         Call<BookData> call = scanrequest.checkBook(idBook);
         Log.i("estado", "LoanData");
         call.enqueue(new Callback<BookData>() {
@@ -79,7 +79,7 @@ public class LoanPresenter implements LoanContract.Presenter {
     public void getLoanData(int idUser, int idBook) {
 
         Log.i("estado", "LoanData");
-        loanRequest loanservice = ServiceGenerator.createService(loanRequest.class);
+        LoanRequest loanservice = ServiceGenerator.createService(LoanRequest.class);
         Call<ArrayList<LoanData>> call = loanservice.getLoan(idUser, idBook);
         call.enqueue(new Callback<ArrayList<LoanData>>() {
             @Override
@@ -90,7 +90,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                     if (!prestamo.isEmpty()) {
                         mLoanView.getTextView(prestamo.get(0).getUserData().getName() + " " + prestamo.get(0).getUserData().getLastname(),
                                 prestamo.get(0).getBookData().getTitle() + " - " + prestamo.get(0).getBookData().getAutor());
-                        Preferences.Guardar(ConstansGlobal.idLoan, String.valueOf(prestamo.get(0).getIdLoan()), context);
+                        Preferences.guardar(ConstansGlobal.idLoan, String.valueOf(prestamo.get(0).getIdLoan()), context);
                     } else {
                         mLoanView.setMessage(true, context.getString(R.string.noExiste));
                     }
@@ -101,7 +101,8 @@ public class LoanPresenter implements LoanContract.Presenter {
 
             @Override
             public void onFailure(Call<ArrayList<LoanData>> call, Throwable t) {
-
+                mLoanView.setLoadingIndicator(false);
+                Toast.makeText(context, R.string.errorConexion, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -109,7 +110,7 @@ public class LoanPresenter implements LoanContract.Presenter {
     @Override
     public void pathLoan() {
         mLoanView.setLoadingIndicator(true);
-        loanRequest loanservice = ServiceGenerator.createService(loanRequest.class);
+        LoanRequest loanservice = ServiceGenerator.createService(LoanRequest.class);
         LoanData general = new LoanData(ConstansGlobal.estadoLoanCancel);
         Call<ResponseBody> call = loanservice.pathLoan(Integer.parseInt(Preferences.obtener(ConstansGlobal.idLoan, context)), general);
         call.enqueue(new Callback<ResponseBody>() {
@@ -126,7 +127,8 @@ public class LoanPresenter implements LoanContract.Presenter {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                mLoanView.setLoadingIndicator(false);
+                Toast.makeText(context, R.string.errorConexion, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -134,7 +136,7 @@ public class LoanPresenter implements LoanContract.Presenter {
     @Override
     public void pathLoanBook() {
         mLoanView.setLoadingIndicator(true);
-        loanRequest loanservice = ServiceGenerator.createService(loanRequest.class);
+        LoanRequest loanservice = ServiceGenerator.createService(LoanRequest.class);
         BookData general = new BookData(ConstansGlobal.estadoLoanCancel);
         Call<ResponseBody> call = loanservice.pathLibro(Integer.parseInt(Preferences.obtener(ConstansGlobal.idBook, context)), general);
         call.enqueue(new Callback<ResponseBody>() {
@@ -150,7 +152,8 @@ public class LoanPresenter implements LoanContract.Presenter {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                mLoanView.setLoadingIndicator(false);
+                Toast.makeText(context, R.string.errorConexion, Toast.LENGTH_SHORT).show();
             }
         });
     }

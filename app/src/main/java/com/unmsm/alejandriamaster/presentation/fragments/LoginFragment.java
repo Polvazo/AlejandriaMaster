@@ -47,7 +47,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
     private ProgressDialog dialog;
     private LoginContract.Presenter mPresenter;
     private Validator validator;
-    private boolean isLoading = false;
+    boolean isLoading = false;
 
 
     public static LoginFragment newInstance() {
