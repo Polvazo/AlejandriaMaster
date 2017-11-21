@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Presentation.Activity.LoginAlejandria"
+            android:name=".presentation.activity.LoginAlejandria"
             android:windowSoftInputMode="adjustResize|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Presentation.Activity.ScanActivity"
+            android:name=".presentation.activity.ScanActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
@@ -30,8 +30,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Presentation.Activity.LoanActivity"></activity>
-        <activity android:name=".Presentation.Utils.SplashScreem">
+        <activity android:name=".presentation.activity.LoanActivity"></activity>
+        <activity android:name=".presentation.utils.SplashScreem">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
