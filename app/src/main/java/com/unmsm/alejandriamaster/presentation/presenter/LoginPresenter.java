@@ -47,7 +47,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
                     if (!loginOpen.isEmpty()) {
                         Log.i("Usuario", String.valueOf(loginOpen.get(0).getUsuarioId()));
-                        Preferences.guardar(ConstansGlobal.idUser, String.valueOf(loginOpen.get(0).getUsuarioId()), context);
+                        Preferences.guardar(ConstansGlobal.user, String.valueOf(loginOpen.get(0).getUsuarioId()), context);
                         mLoginView.successLoginUser();
                         mLoginView.setDialogMessage(context.getString(R.string.Welcome));
                     }

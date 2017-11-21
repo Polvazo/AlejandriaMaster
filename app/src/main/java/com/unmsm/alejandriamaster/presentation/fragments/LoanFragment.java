@@ -49,16 +49,16 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
         usuario = (TextView) root.findViewById(R.id.txt_user);
         libro = (TextView) root.findViewById(R.id.txt_book);
         dialog = new ProgressDialog(getActivity());
-        if (Preferences.obtener(ConstansGlobal.idUser, getActivity()) == null && Preferences.obtener(ConstansGlobal.idBook, getActivity()) == null) {
+        if (Preferences.obtener(ConstansGlobal.user, getActivity()) == null && Preferences.obtener(ConstansGlobal.book, getActivity()) == null) {
             Toast.makeText(getActivity(), R.string.problem, Toast.LENGTH_SHORT).show();
         }
 
-        Log.i("estado", "paso por LoagnFramgemt para e post" + Preferences.obtener(ConstansGlobal.idBook, getActivity()));
+        Log.i("estado", "paso por LoagnFramgemt para e post" + Preferences.obtener(ConstansGlobal.book, getActivity()));
 
-        mPresenter.checkBook(Preferences.obtener(ConstansGlobal.idBook, getActivity()));
+        mPresenter.checkBook(Preferences.obtener(ConstansGlobal.book, getActivity()));
 
-        // userid = Preferences.obtener(ConstansGlobal.idUser, getActivity());
-        //bookid = Preferences.obtener(ConstansGlobal.idBook, getActivity());
+        // userid = Preferences.obtener(ConstansGlobal.user, getActivity());
+        //bookid = Preferences.obtener(ConstansGlobal.book, getActivity());
 
         //mPresenter.getLoanData(Integer.parseInt(userid), Integer.parseInt(bookid));
         ingresar = (Button) root.findViewById(R.id.btn_prestamo);

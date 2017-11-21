@@ -55,7 +55,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                         mLoanView.setLoadingIndicator(false);
                         mLoanView.setMessage(true, context.getString(R.string.Disponiblidad));
                     } else {
-                        userid = Preferences.obtener(ConstansGlobal.idUser, context);
+                        userid = Preferences.obtener(ConstansGlobal.user, context);
                         mLoanView.setLoadingIndicator(false);
                         getLoanData(Integer.parseInt(userid), bookdata.getIdBook());
                     }
@@ -91,7 +91,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                     if (!prestamo.isEmpty()) {
                         mLoanView.getTextView(prestamo.get(0).getUserData().getName() + " " + prestamo.get(0).getUserData().getLastname(),
                                 prestamo.get(0).getBookData().getTitle() + " - " + prestamo.get(0).getBookData().getAutor());
-                        Preferences.guardar(ConstansGlobal.idLoan, String.valueOf(prestamo.get(0).getIdLoan()), context);
+                        Preferences.guardar(ConstansGlobal.loan, String.valueOf(prestamo.get(0).getIdLoan()), context);
                     } else {
                         mLoanView.setMessage(true, context.getString(R.string.noExiste));
                     }
@@ -113,7 +113,7 @@ public class LoanPresenter implements LoanContract.Presenter {
         mLoanView.setLoadingIndicator(true);
         LoanRequest loanservice = ServiceGenerator.createService(LoanRequest.class);
         LoanData general = new LoanData(ConstansGlobal.estadoLoanCancel);
-        Call<ResponseBody> call = loanservice.pathLoan(Integer.parseInt(Preferences.obtener(ConstansGlobal.idLoan, context)), general);
+        Call<ResponseBody> call = loanservice.pathLoan(Integer.parseInt(Preferences.obtener(ConstansGlobal.loan, context)), general);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -139,7 +139,7 @@ public class LoanPresenter implements LoanContract.Presenter {
         mLoanView.setLoadingIndicator(true);
         LoanRequest loanservice = ServiceGenerator.createService(LoanRequest.class);
         BookData general = new BookData(ConstansGlobal.estadoLoanCancel);
-        Call<ResponseBody> call = loanservice.pathLibro(Integer.parseInt(Preferences.obtener(ConstansGlobal.idBook, context)), general);
+        Call<ResponseBody> call = loanservice.pathLibro(Integer.parseInt(Preferences.obtener(ConstansGlobal.book, context)), general);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

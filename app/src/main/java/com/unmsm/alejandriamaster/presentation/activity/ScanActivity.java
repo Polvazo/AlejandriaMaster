@@ -50,7 +50,7 @@ public class ScanActivity extends BaseActivity {
             if (result.getContents() == null) {
                 showMessage(getString(R.string.CanceloScan));
             } else {
-                Preferences.guardar(ConstansGlobal.idBook, result.getContents(), getApplicationContext());
+                Preferences.guardar(ConstansGlobal.book, result.getContents(), getApplicationContext());
                 next(this, null, LoanActivity.class, true);
             }
         }
