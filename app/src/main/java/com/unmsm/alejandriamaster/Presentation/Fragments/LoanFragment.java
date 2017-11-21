@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mobsandgeeks.saripaar.Validator;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
 
 import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
@@ -56,13 +55,14 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
             Toast.makeText(getActivity(), "Hubo un problema", Toast.LENGTH_SHORT).show();
         }
 
-        Log.i("estado", "paso por LoagnFramgemt para e post");
+        Log.i("estado", "paso por LoagnFramgemt para e post" + Preferences.obtener(ConstansGlobal.idBook, getActivity()));
+
         mPresenter.checkBook(Preferences.obtener(ConstansGlobal.idBook, getActivity()));
 
-        userid = Preferences.obtener(ConstansGlobal.idUser, getActivity());
-        bookid = Preferences.obtener(ConstansGlobal.idBook, getActivity());
+        // userid = Preferences.obtener(ConstansGlobal.idUser, getActivity());
+        //bookid = Preferences.obtener(ConstansGlobal.idBook, getActivity());
 
-        mPresenter.getLoanData(Integer.parseInt(userid), Integer.parseInt(bookid));
+        //mPresenter.getLoanData(Integer.parseInt(userid), Integer.parseInt(bookid));
         ingresar = (Button) root.findViewById(R.id.btn_prestamo);
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,16 +157,6 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
         mPresenter = checkNotNull(presenter);
     }
 
-
-    @Override
-    public void errorScanQr(String msg) {
-        ((ScanActivity) getActivity()).showMessageError(msg);
-    }
-
-    @Override
-    public void successScanQr(String msg) {
-        ((ScanActivity) getActivity()).showMessageError(msg);
-    }
 
     @Override
     public void getTextView(String user, String book) {

@@ -68,16 +68,6 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void getPerfilUser() {
-
-    }
-
-    @Override
-    public void openSessionUser(String token, loginData userEntity) {
-
-    }
-
-    @Override
     public void start() {
 
     }

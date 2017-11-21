@@ -1,33 +1,23 @@
 package com.unmsm.alejandriamaster.Presentation.Fragments;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-import com.mobsandgeeks.saripaar.ValidationError;
-import com.mobsandgeeks.saripaar.Validator;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
 
-import com.unmsm.alejandriamaster.Presentation.Activity.LoanActivity;
-import com.unmsm.alejandriamaster.Presentation.Activity.LoginAlejandria;
-import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
-import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
-import com.unmsm.alejandriamaster.Presentation.Contracs.ScanContract;
-import com.unmsm.alejandriamaster.Presentation.Utils.Preferences;
-import com.unmsm.alejandriamaster.R;
 
-import java.util.List;
+import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
+
+import com.unmsm.alejandriamaster.Presentation.Contracs.ScanContract;
+
+import com.unmsm.alejandriamaster.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,7 +58,6 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public void setLoadingIndicator(boolean active) {
 
@@ -92,16 +81,6 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
     @Override
     public void setPresenter(ScanContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
-    }
-
-    @Override
-    public void errorScanQr(String msg) {
-        ((ScanActivity) getActivity()).showMessageError(msg);
-    }
-
-    @Override
-    public void successScanQr(String msg) {
-        ((ScanActivity) getActivity()).showMessageError(msg);
     }
 
     @Override

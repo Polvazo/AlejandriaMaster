@@ -13,9 +13,7 @@ import retrofit2.http.PATCH;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-/**
- * Created by USUARIO on 14/11/2017.
- */
+
 
 public interface loanRequest {
 

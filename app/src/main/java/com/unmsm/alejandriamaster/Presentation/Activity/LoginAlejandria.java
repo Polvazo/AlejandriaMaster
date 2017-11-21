@@ -1,14 +1,13 @@
 package com.unmsm.alejandriamaster.Presentation.Activity;
 
 
-import android.app.Activity;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
-import android.widget.Toast;
+
 
 import com.unmsm.alejandriamaster.Core.BaseActivity;
-import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Presenter.LoginPresenter;
 import com.unmsm.alejandriamaster.Presentation.Utils.ActivityUtils;
 import com.unmsm.alejandriamaster.Presentation.Fragments.LoginFragment;

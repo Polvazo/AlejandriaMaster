@@ -73,20 +73,6 @@
                 tools:ignore="SpUsage"
                 android:layout_marginEnd="10dp" />
 
-            <Button
-                android:id="@+id/btn_manual"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@color/buttonColor"
-                android:elevation="10dp"
-                android:padding="15dp"
-                android:text="@string/Manualmente"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_marginStart="10dp" />
         </LinearLayout>
 
     </RelativeLayout>

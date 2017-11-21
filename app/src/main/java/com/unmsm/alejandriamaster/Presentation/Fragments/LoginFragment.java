@@ -15,7 +15,6 @@ import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
-import com.unmsm.alejandriamaster.Data.Entities.loginData;
 import com.unmsm.alejandriamaster.Presentation.Activity.LoginAlejandria;
 import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
 import com.unmsm.alejandriamaster.Presentation.Contracs.LoginContract;

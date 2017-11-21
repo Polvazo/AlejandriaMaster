@@ -1,10 +1,8 @@
 package com.unmsm.alejandriamaster.Presentation.Activity;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;

@@ -2,10 +2,6 @@ package com.unmsm.alejandriamaster.Data.Entities;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by USUARIO on 14/11/2017.
- */
-
 public class userData {
 
     @SerializedName("nombre")
