@@ -1,7 +1,6 @@
 package com.unmsm.alejandriamaster.presentation.presenter;
 
 
-
 import android.content.Context;
 
 import android.support.annotation.NonNull;
@@ -23,8 +22,6 @@ public class ScanPresenter implements ScanContract.Presenter {
     public void getLoanData() {
         mScanView.getCodeQr();
     }
-
-
 
 
     @Override
