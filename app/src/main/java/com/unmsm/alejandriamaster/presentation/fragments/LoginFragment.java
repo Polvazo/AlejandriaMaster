@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
@@ -156,7 +157,9 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
             case R.id.btn_login:
                 validator.validate();
                 break;
-
+            default:
+                Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
+                break;
 
         }
     }

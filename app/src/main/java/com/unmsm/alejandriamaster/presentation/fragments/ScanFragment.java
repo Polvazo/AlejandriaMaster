@@ -33,8 +33,6 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
     Button btnScan;
 
 
-
-
     public static ScanFragment newInstance() {
         return new ScanFragment();
     }
@@ -59,8 +57,9 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
 
     @Override
     public void setLoadingIndicator(boolean active) {
-        if(active){
-        Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();}
+        if (active) {
+            Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -93,8 +92,11 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_scan:
-               mPresenter.getLoanData();
-               break;
+                mPresenter.getLoanData();
+                break;
+            default:
+                Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 
