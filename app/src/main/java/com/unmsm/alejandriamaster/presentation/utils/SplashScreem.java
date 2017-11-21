@@ -16,13 +16,14 @@ import com.unmsm.alejandriamaster.R;
 
 public class SplashScreem extends AppCompatActivity {
 
+    Thread splashTread;
+
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         Window window = getWindow();
         window.setFormat(PixelFormat.RGBA_8888);
     }
 
-    private Thread splashTread;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -70,7 +70,8 @@ public class LoanPresenter implements LoanContract.Presenter {
 
             @Override
             public void onFailure(Call<BookData> call, Throwable t) {
-
+                mLoanView.setLoadingIndicator(false);
+                Toast.makeText(context, R.string.errorConexion, Toast.LENGTH_SHORT).show();
             }
         });
     }
