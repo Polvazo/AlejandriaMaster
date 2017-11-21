@@ -13,6 +13,7 @@ import com.unmsm.alejandriamaster.Data.Remote.ServiceGenerator;
 import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Contracs.LoanContract;
 import com.unmsm.alejandriamaster.Presentation.Utils.Preferences;
+import com.unmsm.alejandriamaster.R;
 
 import java.util.ArrayList;
 
@@ -52,7 +53,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                     assert bookdata != null;
                     if (bookdata.isEstado()) {
                         mLoanView.setLoadingIndicator(false);
-                        mLoanView.setMessage(true, "El libro que intentó escanear en estos momentos esta disponible y no existe prestamo");
+                        mLoanView.setMessage(true, context.getString(R.string.Disponiblidad));
                     } else {
                         userid = Preferences.obtener(ConstansGlobal.idUser, context);
                         mLoanView.setLoadingIndicator(false);
@@ -63,7 +64,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                 }
                 if (response.code() == 404) {
                     mLoanView.setLoadingIndicator(false);
-                    mLoanView.setMessage(true, "El libro que intento escanear no existe, por favor intente otra vez");
+                    mLoanView.setMessage(true, context.getString(R.string.Ocupado));
                 }
             }
 
@@ -91,7 +92,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                                 prestamo.get(0).getBookData().getTitle() + " - " + prestamo.get(0).getBookData().getAutor());
                         Preferences.Guardar(ConstansGlobal.idLoan, String.valueOf(prestamo.get(0).getIdLoan()), context);
                     } else {
-                        mLoanView.setMessage(true, "Prestamo no existe");
+                        mLoanView.setMessage(true, context.getString(R.string.noExiste));
                     }
 
 
@@ -118,7 +119,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                     mLoanView.setLoadingIndicator(false);
                     Log.i("pasoO", "se cambio de estado");
                     mLoanView.successLoginUser();
-                    Toast.makeText(context, "Se ingreso correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.Correcto, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -143,7 +144,7 @@ public class LoanPresenter implements LoanContract.Presenter {
                     mLoanView.setLoadingIndicator(false);
                     Log.i("pasoO", "se cambio de estado");
                     mLoanView.successLoginUser();
-                    Toast.makeText(context, "Se ingreso correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.Corecto, Toast.LENGTH_SHORT).show();
                 } else {
 
                 }

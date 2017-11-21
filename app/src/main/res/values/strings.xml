@@ -12,4 +12,21 @@
     <string name="PresionaSalir">Vuelve a presionar para salir</string>
     <string name="Manualmente">Manual</string>
     <string name="fisi">FACULTAD DE INGENIERIA DE SISTEMAS E INFORMATICA</string>
+    <string name="Alunmo">ALUNMO</string>
+    <string name="libro">LIBRO</string>
+    <string name="problem">Hubo un problema</string>
+    <string name="cancel">Se canceló la confirmación</string>
+    <string name="verificandoLibro">Verificando libro</string>
+    <string name="ALEJANDRIAMASTER">ALEJANDRIA MASTER</string>
+    <string name="Ok">OK</string>
+    <string name="wait">Ingresando, espere un momento...</string>
+    <string name="FISI">FACULTAD DE SISTEMAS E INFORMATICA</string>
+    <string name="Disponiblidad">El libro que intentó escanear en estos momentos esta disponible y no existe prestamo</string>
+    <string name="Ocupado">El libro que intento escanear no existe, por favor intente otra vez</string>
+    <string name="noExiste">Prestamo no existe</string>
+    <string name="Correcto">Se ingreso correctamente</string>
+    <string name="Corecto">Se ingreso correctamente</string>
+    <string name="Welcome">Bienvenido</string>
+    <string name="incorrecto">Email o contraseña incorrecto(s)</string>
+    <string name="errorLoging">Ocurrió un error al tratar de ingresar, por favor intente de nuevo</string>
 </resources>

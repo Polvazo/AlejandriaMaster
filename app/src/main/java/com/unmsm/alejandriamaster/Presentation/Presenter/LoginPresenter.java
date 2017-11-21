@@ -11,6 +11,7 @@ import com.unmsm.alejandriamaster.Data.Remote.ServiceGenerator;
 import com.unmsm.alejandriamaster.Presentation.Constans.ConstansGlobal;
 import com.unmsm.alejandriamaster.Presentation.Contracs.LoginContract;
 import com.unmsm.alejandriamaster.Presentation.Utils.Preferences;
+import com.unmsm.alejandriamaster.R;
 
 import java.util.ArrayList;
 
@@ -49,20 +50,20 @@ public class LoginPresenter implements LoginContract.Presenter {
                             Log.i("Usuario",String.valueOf(loginOpen.get(0).getUsuarioId()));
                             Preferences.Guardar(ConstansGlobal.idUser,String.valueOf(loginOpen.get(0).getUsuarioId()),context);
                             mLoginView.successLoginUser();
-                            mLoginView.setDialogMessage("Bienvenido");
+                            mLoginView.setDialogMessage(context.getString(R.string.Welcome));
 
                         }
 
 
                 }
                 mLoginView.setLoadingIndicator(false);
-                mLoginView.errorLogin("Email o contraseña incorrecto(s)");
+                mLoginView.errorLogin(context.getString(R.string.incorrecto));
             }
 
             @Override
             public void onFailure(Call<ArrayList<loginData>> call, Throwable t) {
                 mLoginView.setLoadingIndicator(false);
-                mLoginView.errorLogin("Ocurrió un error al tratar de ingresar, por favor intente de nuevo");
+                mLoginView.errorLogin(context.getString(R.string.errorLoging));
             }
         });
     }

@@ -67,7 +67,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View,Va
         super.onViewCreated(view, savedInstanceState);
         dialog = new ProgressDialog(getContext());
         dialog.setIndeterminate(true);
-        dialog.setMessage("Ingresando, espere un momento...");
+        dialog.setMessage(getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.circle_progress));
 

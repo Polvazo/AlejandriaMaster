@@ -13,8 +13,6 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.unmsm.alejandriamaster.Core.BaseFragment;
 
 
-import com.unmsm.alejandriamaster.Presentation.Activity.ScanActivity;
-
 import com.unmsm.alejandriamaster.Presentation.Contracs.ScanContract;
 
 import com.unmsm.alejandriamaster.R;
@@ -101,7 +99,7 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
     public void getCodeQr() {
         IntentIntegrator integrator = new IntentIntegrator(getActivity());
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-        integrator.setPrompt("Scan");
+        integrator.setPrompt(getString(R.string.FISI));
         integrator.setCameraId(0);
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(false);

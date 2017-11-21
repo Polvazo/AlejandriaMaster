@@ -11,7 +11,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/user_profile_image_background"
-        android:src="@drawable/logoloan" />
+        android:src="@drawable/logoloan"
+        android:contentDescription="TODO" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,15 +27,15 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:text="LIBRO"
+            android:text="@string/libro"
             android:layout_gravity="center"
             android:padding="10dp"
             android:drawableLeft="@drawable/ic_book"
-            android:textSize="20dp"
-
+            android:textSize="20sp"
             android:drawablePadding="10dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/ic_book" />
 
         <TextView
             android:id="@+id/txt_book"
@@ -47,15 +48,16 @@
 
         <TextView
 
-            android:text="ALUMNO"
+            android:text="@string/Alunmo"
             android:drawablePadding="10dp"
             android:drawableLeft="@drawable/iconuser"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/iconuser" />
 
         <TextView
             android:id="@+id/txt_user"

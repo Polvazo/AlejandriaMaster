@@ -52,7 +52,7 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
         libro = (TextView) root.findViewById(R.id.txt_book);
         dialog = new ProgressDialog(getActivity());
         if (Preferences.obtener(ConstansGlobal.idUser, getActivity()) == null && Preferences.obtener(ConstansGlobal.idBook, getActivity()) == null) {
-            Toast.makeText(getActivity(), "Hubo un problema", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.problem, Toast.LENGTH_SHORT).show();
         }
 
         Log.i("estado", "paso por LoagnFramgemt para e post" + Preferences.obtener(ConstansGlobal.idBook, getActivity()));
@@ -76,7 +76,7 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Se canceló la confirmación", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.cancel, Toast.LENGTH_SHORT).show();
                 next(getActivity(), null, ScanActivity.class, true);
             }
         });
@@ -89,14 +89,14 @@ public class LoanFragment extends BaseFragment implements LoanContract.View {
 
 
         dialog.setIndeterminate(true);
-        dialog.setMessage("Verificando libro");
+        dialog.setMessage(getString(R.string.verificandoLibro));
         dialog.setCancelable(false);
         dialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.circle_progress));
 
         alertDialog = new AlertDialog.Builder(getActivity()).create();
-        alertDialog.setTitle("ALEJANDRIA MASTER");
+        alertDialog.setTitle(getString(R.string.ALEJANDRIAMASTER));
         alertDialog.setCancelable(false);
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(R.string.Ok),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         next(getActivity(), null, ScanActivity.class, true);
