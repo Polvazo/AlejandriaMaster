@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -58,17 +59,18 @@ public class ScanFragment extends BaseFragment implements ScanContract.View {
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
+        if(active){
+        Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();}
     }
 
     @Override
     public void setMessageError(String error) {
-
+        Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void setDialogMessage(String message) {
-
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

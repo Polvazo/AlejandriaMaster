@@ -4,8 +4,6 @@ package com.unmsm.alejandriamaster.presentation.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-
 
 import com.unmsm.alejandriamaster.core.BaseActivity;
 import com.unmsm.alejandriamaster.presentation.presenter.LoginPresenter;
